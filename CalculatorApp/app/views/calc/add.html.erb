@@ -1,2 +1,26 @@
 <h2>Add 2 numbers</h2>
+
+<%= form_tag calc_doadd_path do %>
+<div>
+  <% flash.each do |key, value| %>
+  <div><%= value %></div>
+  <% end %>
+</div>
+<table>
+  <tr>
+    <td>First Number</td>
+    <td><%= text_field_tag :firstNum %></td>
+  </tr>
+  <tr>
+    <td>Second Number</td>
+    <td><%= text_field_tag :secondNum %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= submit_tag('Add') %>
+    </td>
+  </tr>
+</table>
+<% end %>
+
 <%= link_to "Back", root_path %>
