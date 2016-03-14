@@ -27,7 +27,8 @@ class CalcController < ApplicationController
     if ok
       first_num = calc_params[:firstNum].to_i
       second_num = calc_params[:secondNum].to_i
-      @result = first_num + second_num
+      obj = Calculator.new
+      @result = obj.add(first_num, second_num)
     else
       render "add"
     end
