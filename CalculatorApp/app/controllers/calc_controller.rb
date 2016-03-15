@@ -24,11 +24,14 @@ class CalcController < ApplicationController
       flash.now[:noticeTwo] = "The second number is required."
       ok = false
     end
+
     if ok
       first_num = calc_params[:firstNum].to_i
       second_num = calc_params[:secondNum].to_i
       obj = Calculator.new
-      @result = obj.add(first_num, second_num)
+      obj.add(first_num, second_num)
+      @result = obj.result
+      @count = Calculator.getCount
     else
       render "add"
     end
