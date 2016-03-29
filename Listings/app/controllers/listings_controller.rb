@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    if @listing.save?
+    if @listing.save
       redirect_to root_path
     else
       render "new"
@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
   private
 
     def listing_params
-      params(:listing).permit(:title, :description, :price)
+      params.require(:listing).permit(:title, :description, :price)
     end
 
 end
