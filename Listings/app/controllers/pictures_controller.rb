@@ -25,6 +25,7 @@ class PicturesController < ApplicationController
       File.open(filename, 'wb') do |file|
         file.write(uploadIO.read)
       end
+      @picture.save
     end
 
   end
