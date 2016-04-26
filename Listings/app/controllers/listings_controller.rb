@@ -1,10 +1,12 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    @user = User.find(params[:user_id])
+    @listings = @user.listings.all
   end
 
   def new
-    @listing = Listing.new
+    @user = User.find(params[:user_id])
+    @listing = Listing.new(:user => @user)
   end
 
   def create
